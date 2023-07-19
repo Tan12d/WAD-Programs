@@ -1,0 +1,113 @@
+<!-- Name: Tanmoy Das
+Regd. No.: 2041004073
+Branch/Sec: CSIT/'C'
+Subject: Web Application Development -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React CDN</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 95vw;
+            height: 1000px;
+            color: white;
+        }
+        #container{
+            background-color: #ffffff;
+            margin: 20px auto;
+            padding: 20px;            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        class TriClrBox extends React.Component {
+            render() {
+                let triboxStyle = {
+                    margin: "20px",
+                    height: "180px",
+                    width: "127px"
+                };
+                return (
+                    <div style={triboxStyle}>
+                        <Box1 cLr1={this.props.colour1}></Box1>
+                        <Box2 cLr2={this.props.colour2}></Box2>
+                        <Box3 cLr3={this.props.colour3}></Box3>
+                    </div>
+                );
+            }
+        }
+
+        class Box1 extends React.Component {
+            render() {
+                let bOx1Style = {
+                    width: "275px",
+                    height: "200px",
+                    backgroundColor: this.props.cLr1
+                };
+                return (
+                    <div style={bOx1Style}>
+                    </div>
+                );
+            }
+        }
+
+        class Box2 extends React.Component {
+            render() {
+                let bOx2Style = {
+                    width: "275px",
+                    height: "100px",
+                    backgroundColor: this.props.cLr2
+                };
+                return (
+                    <div style={bOx2Style}>
+                    </div>
+                );
+            }
+        }
+        
+        class Box3 extends React.Component {
+            render() {
+                let bOx3Style = {
+                    width: "275px",
+                    height: "100px",
+                    backgroundColor: this.props.cLr3
+                };
+                return (
+                    <div style={bOx3Style}>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div style={{display: "flex", flexDirection: "row"}}>
+                <TriClrBox colour1="#cf5a06" colour2="#2b53f4" colour3="#878787"></TriClrBox>                      
+            </div>
+            ,document.querySelector('#container')
+        );
+
+    </script>
+</body>
+
+</html>

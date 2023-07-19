@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+
+    <style>
+
+        .square
+        {
+            height: 240px;
+            width: 240px;
+            box-shadow: 0px 0px 25px 0px #333;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        class Color extends React.Component 
+        {
+            constructor(props)
+            {
+                super(props);
+                this.state= {
+                    color:"",
+                    bgColor:"white"
+                }
+
+                this.colorValue=this.colorValue.bind(this);
+                this.setNewColor=this.setNewColor.bind(this);
+
+                colorValue(e)
+                {
+                    this.setState({
+                        color: e.target.value
+                    });
+                }
+
+                setNewColor(e)
+                {
+                    this.setState({
+                        bgColor: this.state.color
+                    });
+
+                    this._input.value="";
+
+                    e.preventDefault();
+                }
+            }
+
+            render()
+            {
+                var squareStyle={
+                    backgroundColor: this.state.bgColor
+                };
+
+                return(
+                    <div>
+
+                        <div style={squareStyle} className="square"></div>
+
+                        <form onSubmit={this.setNewColor}>
+
+                            <input onChange={this.colorValue} ref={
+                                    (el) => this._input=el
+                                } 
+                                
+                            placeholder="Enter the color"></input>
+
+                            <button type="submit">Go</button>
+
+                        </form>
+
+                    </div>
+                )
+            }
+
+
+        }
+
+        ReactDOM.render(
+            <div>
+                <Color/>
+            </div>,
+            document.querySelector("#container")
+        )
+
+    </script>
+    
+</body>
+</html>

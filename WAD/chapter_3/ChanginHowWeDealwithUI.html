@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<style>
+
+    #container
+    {
+        background-color: rgb(126, 130, 133);
+        height: 220px;
+        width: 200px;
+        text-align: center;
+    }
+</style>
+<body>
+
+    <div id="container"></div>
+    
+    <script type="text/babel">
+
+        ReactDOM.render(
+            <div>
+                <h1>Batman</h1>
+                <h1><i>Superman</i></h1>    
+                <h1>Ironman</h1>    
+                <h1>Antman</h1>    
+            </div>,
+            document.querySelector('#container')
+        )
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button class="button" onclick="vibrate(1000)">Vibrate single</button>
+    <button class="button" onclick="vibratePattern()">Vibrate pattern</button>
+
+    <script>
+
+        // navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+        
+        // if(navigator.vibrate){
+        //     document.body.addEventListener('click',function(ev){
+        //         console.log('body clciked');
+        //         navigator.vibrate([500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500]);
+        //     });
+        // }
+
+            function vibrate(ms)
+            {
+                navigator.vibrate(ms);
+            }
+
+            function vibratePattern()
+            {
+                navigator.vibrate([300, 100, 300, 100, 300]);
+            }
+
+
+
+    </script>
+    
+</body>
+</html>

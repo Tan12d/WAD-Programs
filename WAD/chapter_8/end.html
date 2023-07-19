@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      
+      src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+    
+    <script type="text/babel">
+
+        class LightCounter extends React.Component 
+        {
+            constructor(props)
+            {
+                super(props);
+                this.state={
+                    strikes:0
+                }
+
+                this.timerTick = this.timerTick.bind(this);
+            }
+
+            timerTick()
+            {
+                this.setState({
+                    strikes:this.state.strikes+100
+                });
+            }
+
+            componentDidMount()
+            {
+                setInterval(this.timerTick,1000);
+            }
+
+            render()
+            {
+                var lightStyle= {
+                    color: "aqua",
+                    fontSize: 60
+                }
+
+                return(
+                    <div style={lightStyle}>
+                        {this.state.strikes}
+                    </div>
+                )
+            }
+        }
+
+        class Display extends React.Component 
+        {
+            render()
+            {
+                var divStyle= {
+                    backgroundColor:"black",
+                    height: 200,
+                    width: 400,
+                    textAlign: 'center',
+                    borderRadius: '8px'
+                }
+
+                var hstyle={
+                    color: "grey",
+                    fontSize: 40,
+                    fontFamily: "sans-serif"
+                }
+
+                return(
+                    <div style={divStyle}>
+                        <LightCounter/>
+                        <h1 style={hstyle}>Lightning Counter</h1>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <div>
+                <Display/>
+            </div>,
+            document.querySelector("#container")
+        )
+
+    </script>
+
+</body>
+</html>

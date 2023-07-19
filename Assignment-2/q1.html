@@ -1,0 +1,75 @@
+<!-- Name: Tanmoy Das
+Regd. No.: 2041004073
+Branch/Sec: CSIT/'C'
+Subject: Web Application Development -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3</title>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+      class About extends React.Component{
+        render(){
+          var divStyle = {
+            textAlign: 'center',
+            height:200,
+            width:300,
+            display:'flex',
+            flexDirection: 'column',
+            backgroundColor: 'pink'
+          }
+
+          var hstyle = {
+            fontSize:50,
+            backgroundColor:"aqua",
+            margin:5,
+            height:101
+          }
+
+          var liStyle = {            
+            color:'purple',
+            fontSize:20,
+            listStyle:'none',
+            textAlign:'left'
+          }
+
+          return(
+            <div style={divStyle}>
+              <h1 style={hstyle}>Tanmoy Das</h1>
+              <ul>
+                <li style={liStyle}>B.Tech (2020-2024)</li>
+                <li style={liStyle}>12th- S.D.S.M School (2020)</li>  
+                <li style={liStyle}>10th- S.D.S.M School (2018)</li>
+              </ul>
+            </div>
+          );
+        }        
+      }
+
+      ReactDOM.render(
+        <About/>,
+        document.querySelector('#container')
+      )
+
+    </script>    
+</body>
+</html>

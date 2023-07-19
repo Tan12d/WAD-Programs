@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+
+        .a{
+            background-color: yellowgreen;
+            height: 100px;
+            width: 200px;
+            border-radius: 8px;
+        }
+
+        .b{
+            top: 10%;
+            text-align: center;
+            position: relative;
+        }
+
+        .c{
+            left: 44%;
+            position: relative;
+        }
+
+    </style>
+    
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        class StateExmp extends React.Component {
+            constructor() {
+                super();
+                this.state = {data:1};
+            }
+
+            updateData(){
+                this.setState({data: this.state.data+1});
+            }
+
+            render(){                
+                return (
+                    <div className="a">
+                        <h1 className="b">{this.state.data}</h1>
+                        <button className="c" onClick={()=> this.updateData()}><b>+</b></button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <StateExmp/>
+            </div>,
+            document.querySelector('#container')
+        );
+
+    </script>
+
+
+
+</body>
+
+</html>

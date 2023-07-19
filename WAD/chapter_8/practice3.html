@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        class Car2 extends React.Component
+        {
+            constructor(props)
+            {
+                super(props);
+                this.state = {
+                    brand: "Alto",
+                    size: 23,
+                    color: "red"
+                }
+            }
+
+            changeColor= () =>
+            {
+                this.setState({color:"blue"});
+            }
+
+            changeBrand= () => 
+            {
+                this.setState({brand:"Ford"})
+            }
+
+            render()
+            {
+                return(
+                    <div>
+                        <p>My car is {this.state.brand} of color {this.state.color} and size {this.state.size}</p>    
+
+                        <button onClick={this.changeColor}>Change Color</button>
+
+                        <button onClick={this.changeBrand}>Change Brand</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Car2/>,
+            document.querySelector("#container")
+        )
+
+    </script>
+    
+</body>
+</html>

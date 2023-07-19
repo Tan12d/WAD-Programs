@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+    
+      src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+      <style>
+
+        #container
+        {
+            padding: 50px;
+            background-color: #FFF;
+            
+        }      
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        class Circle extends React.Component{
+            render(){
+                var circleStyle = {
+                    padding:10,
+                    margin:20,
+                    display:"inline-block",                              
+                    backgroundColor: this.props.bgColor,
+                    borderRadius: "50%",
+                    width:100,
+                    height:100,
+                };
+
+                return(
+                    <div style={circleStyle}></div>
+                );
+            }
+        } 
+
+        function showCircle() {
+            var colors = ["#393E41", "#E94F37", "#1C89BF", "#A1D363"];
+            var ran = Math.floor(Math.random() * colors.length);
+            // return a Circle with a randomly chosen color
+            return <Circle bgColor={colors[ran]} />;
+        }
+
+
+        ReactDOM.render(
+            <div>
+                {showCircle()}
+                {showCircle()}
+                {showCircle()}
+                {showCircle()}
+            </div>,
+            document.querySelector('#container')
+        );
+
+    </script>
+    
+</body>
+</html>

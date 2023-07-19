@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:p
+        }
+    </style>
+</head>
+
+<body>
+
+    <label>Name :</label>
+    <span id="a1"></span>
+
+    <br>
+
+    <label>Section :</label>
+    <span id="a2"></span>
+
+    <br>
+
+    <label>Subject :</label>
+    <span id="a3"></span>
+
+    <br>
+
+    <label>CollegeName :</label>
+    <span id="a4"></span>
+
+    <br>
+
+    <label>Mobile No. :</label>
+    <span id="a5"></span>
+
+    <br>
+
+    <script>
+
+        let a = "ABC";
+
+        let b = Symbol("It's a symbol");
+
+        let c = null;
+
+        let d = 55;
+
+        let e = true;
+
+        let f = BigInt("989");
+
+        let g = undefined;
+
+        console.log(a, b, c, d, e, f, g);
+
+        console.log(typeof a);
+        console.log(typeof b);
+        console.log(typeof c);
+        console.log(typeof d);
+        console.log(typeof e);
+        console.log(typeof f);
+        console.log(typeof g);
+
+        let f1 = BigInt("989") + BigInt("556");
+
+        console.log(f1);
+
+        let obj = {
+            name: "TANMOY",
+            roll: 06
+        }
+
+        console.log(obj);
+
+        let students = {
+            ABC: 99,
+            SE: 45,
+            YU: 89,
+            HU: 23,
+            OJEW: 100
+        }
+
+        console.log(students);
+
+        students['friend'] = "xyz"
+
+        console.log(students);
+
+
+        // console.log(students.map(my(x)));
+
+        // function my(x)
+        // {
+        //     return x>70;
+        // }
+
+        let m = prompt("Enter your name:")
+        document.getElementById('a1').innerHTML = m;
+
+        let n = prompt("Enter your section:")
+        document.getElementById('a2').innerHTML = n;
+
+        let o = prompt("Enter your subject:")
+        document.getElementById('a3').innerHTML = o;
+
+        let p = prompt("Enter your College name:")
+        document.getElementById('a4').innerHTML = p;
+
+        let q = prompt("Enter your mobile no.:")
+        document.getElementById('a5').innerHTML = q;
+
+        // let student;
+
+        // student = {}
+
+
+
+
+    </script>
+</body>
+
+</html>

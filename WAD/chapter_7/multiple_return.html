@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        class Stuff extends React.Component {
+            render() {
+                return(
+                    <React.Fragment>
+                    <p>This is me</p>
+                    <p>This is hello</p>
+                    <p>This is cool</p>
+                    </React.Fragment>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Stuff />,
+            document.querySelector("#container")
+        );
+
+    </script>
+    
+</body>
+</html>

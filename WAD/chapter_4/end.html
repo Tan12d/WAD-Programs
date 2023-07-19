@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+
+        #container
+        {
+            padding: 50px;
+            background: #FFF;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+    
+    <script type="text/babel">
+
+        class Vowel extends React.Component 
+        {
+            render()
+            {
+                var vowelStyle= {
+                    padding: 10,
+                    margin: 10,
+                    display: "inline-block",
+                    color:"black",
+                    backgroundColor: this.props.bgcolor
+                }
+
+                return(
+                    <div style={vowelStyle}>
+                        {this.props.children}
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <Vowel bgcolor="red">A</Vowel>
+                <Vowel bgcolor="yellow">E</Vowel>
+                <Vowel bgcolor="green">I</Vowel>
+                <Vowel bgcolor="aqua">O</Vowel>
+                <Vowel bgcolor="orange">U</Vowel>
+            </div>,
+            document.querySelector("#container")
+        )
+
+
+    </script>
+
+
+</body>
+</html>

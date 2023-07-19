@@ -1,0 +1,139 @@
+<!-- Name: Tanmoy Das
+Regd. No.: 2041004073
+Branch/Sec: CSIT/'C'
+Subject: Web Application Development -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React CDN</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src='https://unpkg.com/babel-standalone@6.15.0/babel.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Oswald:wght@300&display=swap"
+        rel="stylesheet">
+    
+    <style>
+        
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 50px;
+            background-color: rgb(255, 255, 255);
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <div id="container"></div>
+    
+    <script type="text/babel">
+
+        let x = Math.floor((Math.random() * 10.0) + 1.0000001);
+        
+        class BalanceDisplay extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    balance: 0
+                };
+
+                this.timerTick = this.timerTick.bind(this);
+            }
+
+            timerTick() {
+                this.setState({
+                    balance: this.state.balance + 0.31+x
+                });
+            }
+
+            componentDidMount() {
+                setInterval(this.timerTick, 1000);
+            }
+
+            render() {
+                var counterStyle = {
+                    color: "whitesmoke",
+                    fontFamily: "'Oswald', sans-serif",
+                    fontSize:"80px"
+                };
+
+                var count = this.state.balance.toLocaleString();
+                
+                return (
+                    <h1 style={counterStyle}>{count}</h1>
+                );
+            }
+        }
+
+        class BalanceBox extends React.Component {
+            render() {
+                var divStyle = {
+                    margin: "150px auto",
+                    padding: "20px",
+                    color: "#444c5f",
+                    backgroundColor: "#251e2b",
+                    fontSize: "76px",
+                    height: "260px",
+                    width: "400px",
+                    fontFamily: "'Delicious Handrawn', cursive",
+                    display: "inline-block",
+                };
+
+                var textStyles = {
+                    centerAlin:{
+                        textAlign:"center"
+                    },
+
+                    courierCurrency: {
+                        fontSize: "42px",
+                        color: "whitesmoke",
+                        position: "relative",
+                        left: "237.5px",
+                        bottom: "67.5px",
+                    },
+
+                    tangleBox: {
+                        width: "0",
+                        height: "0",
+                        border: "20px transparent solid",
+                        borderColor: "transparent transparent #1ad81a transparent",
+                        position: "relative",
+                        left: "312.5px",
+                        bottom: "121.5px",
+                    }
+                };
+
+                return (
+                    <div style={divStyle}>
+                        <p style={textStyles.centerAlin}>Your Balance</p>
+                        <div>
+                            <BalanceDisplay />
+                            <div style={textStyles.courierCurrency}>CHF</div>
+                            <div style={textStyles.tangleBox}></div>
+                        </div>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <BalanceBox />,
+            document.querySelector("#container")
+        );
+
+    </script>
+</body>
+
+</html>

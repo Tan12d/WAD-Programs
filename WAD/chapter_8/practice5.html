@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      
+      src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+
+        class LightCounter extends React.Component 
+        {
+            constructor(props)
+            {
+                super(props);
+                this.state={
+                    strikes:0 
+                }
+
+                this.TimerTick= this.TimerTick.bind(this);
+            }
+
+            TimerTick()
+            {
+                this.setState({strikes: this.state.strikes+100});
+            }
+
+            componentDidMount()
+            {
+                setInterval(this.TimerTick,1000)
+            }
+
+            render()
+            {
+                var counterStyle = {
+                    color: '#66FFFF',
+                    fontSize:50
+                };
+
+                return(
+                    <h1 style={counterStyle}>
+                        {this.state.strikes}    
+                    </h1>
+                )
+            }
+        }
+
+        class Light extends React.Component
+        {
+            render()
+            {
+                var divStyle= {
+                    width: 250,
+                    textAlign:'center',
+                    backgroundColor:'black',
+                    padding: 40,
+                    fontFamily: "sans-serif",
+                    color:"#999",
+                    borderRadius:10
+                };
+
+                var textStyles= {
+                    empasis: {
+                        fontSize:38,
+                        margin:0,
+                        padding:0
+                    },
+
+                    smallEmpasis :{
+                        margin:0,
+                        padding:0
+                    },
+
+                    small: {
+                        fontSize:17,
+                        opacity:0.5,
+                        margin:0,
+                        padding:0
+                    }
+                };
+
+                return(
+                    <div style={divStyle}>
+                        <LightCounter/>
+                        <h2 style={textStyles.smallEmpasis}>LIGHTNING STRIKES</h2>
+                        <h2 style={textStyles.empasis}>WORLDWIDE</h2>
+                        <p style={textStyles.small}>(since you loaded this example)</p>
+                    </div>
+                );
+            }      
+        }
+
+        ReactDOM.render(
+            <Light/>,
+            document.querySelector("#container")
+        )
+
+    </script>
+    
+</body>
+</html>

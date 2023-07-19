@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+</head>
+<body>
+
+    <div id="container"></div>
+    
+    <script type="text/babel">
+
+        class Tri extends React.Component 
+        {
+            render()
+            {
+                let triStyle={
+                    margin: "20px",
+                    height: "180px",
+                    width: "127px"
+                }
+
+                return(
+                    <div style={triStyle}>
+                        <Box1 col={this.props.c}></Box1>
+                        <Box2 col1={this.props.c1}></Box2>
+                        <Box3 col2={this.props.c2}></Box3>    
+                    </div>
+                )
+            }
+        }
+
+        class Box1 extends React.Component 
+        {
+            render()
+            {
+                let box1Style={
+                    backgroundColor: this.props.col,
+                    height:"200px",
+                    width:"300px"
+                }
+
+                return(
+                    <div style={box1Style}></div>
+                )
+            }
+        }
+
+        class Box2 extends React.Component 
+        {
+            render()
+            {
+                let box2Style={
+                    backgroundColor: this.props.col1,
+                    height:"100px",
+                    width:"300px"
+                }
+
+                return(
+                    <div style={box2Style}></div>
+                )
+            }
+        }
+
+        class Box3 extends React.Component 
+        {
+            render()
+            {
+                let box3Style={
+                    backgroundColor: this.props.col2,
+                    height:"100px",
+                    width:"300px"
+                }
+
+                return(
+                    <div style={box3Style}></div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <div style={{display:"flex" , flexDirection:"row"}}>
+                <Tri c="red" c1="green" c2="blue"></Tri>
+            </div>,
+            document.querySelector("#container")
+        )
+
+    </script>
+
+</body>
+</html>

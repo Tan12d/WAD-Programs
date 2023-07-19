@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>React CDN</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+
+        #root {
+            padding: 15px;
+            width: 170px;
+            /* text-align: center; */
+            margin: 20px auto;
+        }
+
+        li {
+            text-align: left;
+            margin-left: 30px;
+        }
+
+        h1 {
+            font-family: 'Alkatra', cursive;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+    
+    <script type="text/babel">
+
+        class List extends React.Component 
+        {
+            render()
+            {
+                return(
+                    <div>
+                        <ul>
+                            <li><Box>😃</Box></li>    
+                            <li><Box>🎉</Box></li>    
+                            <li><Box>💃🏻</Box></li>  
+                        </ul>    
+                    </div>
+                )
+            }
+        }
+
+        class Box extends React.Component 
+        {
+            render()
+            {
+                let boxStyle={
+                    border: "1px #999999 solid",
+                    display: "inline-block",
+                    padding: "2px",
+                    background: "linear-gradient(#cecece, #ededf0)"
+                }
+
+                return(
+                    <div style={boxStyle}>
+                        {this.props.children}    
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <h1>Hello, World</h1>
+                <p>I am writing JSX</p>
+                <List/>
+            </div>,
+            document.querySelector("#container")
+        )
+
+    </script>
+
+</body>
+</html>

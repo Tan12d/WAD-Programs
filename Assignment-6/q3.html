@@ -1,0 +1,80 @@
+<!-- Name: Tanmoy Das
+Regd. No.: 2041004073
+Branch/Sec: CSIT/'C'
+Subject: Web Application Development -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React CDN</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js'></script>
+    
+    <style>
+        
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 24px;
+            background-color: #fff;
+        }
+
+        #container {
+            width: 704px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    <div id="container"></div>
+    
+    <script type="text/babel">
+        
+        class Square extends React.Component {
+            render() {
+                var squareStyle = {
+                    width: "136px",
+                    height: "136px",
+                    margin: "20px",
+                    borderRadius: "10px",
+                    backgroundColor: this.props.bgColor,
+                    boxShadow: `0 9px 0 ${this.props.bgShadow}`,
+                    display: "inline-block",
+                };
+                return (
+                    <div style={squareStyle}>
+                    </div>
+                );
+            }
+        }
+        
+        var colors = ["#679BCB", "#99CA32", "#FF339D", "#CCCA65", "#FF6500", "#34CCFE", "#FF3336", "#FF9934", "#39AA38", "#CCCCCC", "#FFCC01", "#FF679A"];
+        var clrShadow = ["#446F95", "#689323", "#B8206C", "#93914A", "#B24907", "#2097B7", "#BB2329", "#B26B2A", "#277729", "#939393", "#B59303", "#B24A6E"];
+
+        var renderData = [];
+
+        for (var i = 0; i < colors.length; i++) {
+            renderData.push(<Square bgColor={colors[i]} bgShadow={clrShadow[i]} />);
+        }
+
+        ReactDOM.render(
+            <div>
+                {renderData}
+            </div>,
+            document.querySelector("#container")
+        );
+
+    </script>
+</body>
+
+</html>

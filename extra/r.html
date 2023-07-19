@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #circle
+        {
+            background-color: aqua;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div id="circle"></div> -->
+
+    <video d="video" autoplay>Video stream</video>
+    
+    <script async>
+
+        // navigator.mediaDevices.getUserMedia(
+        //     {
+        //         video:true,
+        //         audio:true,
+        //     }).then(stream => {
+        //         var videoElement = document.createElement('video');
+        //         videoElement.srcObject = stream;
+        //         document.body.appendChild(videoElement);
+        //     }
+        // )
+
+        // let e= document.getElementById("circle");
+        // let a=e.animate([
+        //     {opacity:0},{opacity:1}],
+        //     {
+        //         duration: 300,
+        //         easing: "linear",
+        //     }
+        // );
+
+        const video= document.getElementById('video');
+
+        window.addEventListener('load',startup,false);
+
+        function startup() {
+            navigator.mediaDevices.getUserMedia(
+            {
+                video:true,
+                audio:true,
+            }).then(stream => {
+                video.srcObject = stream;
+            }).catch(console.error)
+        }
+
+    </script>
+    
+</body>
+</html>
